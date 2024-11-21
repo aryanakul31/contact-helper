@@ -1,0 +1,9 @@
+jdk:
+  - openjdk17
+
+gradle:
+  wrapper: false
+
+android:
+  buildToolsVersion: '33.0.2'
+  compileSdkVersion: 33
