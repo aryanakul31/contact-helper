@@ -14,10 +14,6 @@ This library simplifies the process of syncing phone contacts with a server or l
 
 * **Contact Permission:** Inside AndroidManifest.xml file, add below permission to access and sync contacts.
 
-```manifest
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-```
-
 ## Installation
 
 Add the following dependency to your module-level `build.gradle.kts` file:
@@ -30,6 +26,9 @@ Add the following dependency to your module-level `build.gradle.kts` file:
 
 1. **Request and Handle Contact Permission:**
     * Request the `android.permission.READ_CONTACTS` permission at runtime using the standard Android permission request flow.
+   ```manifest
+        <uses-permission android:name="android.permission.READ_CONTACTS" />
+   ```
     * Handle the permission request result in your activity or fragment, proceeding with contact sync only if the permission is granted.
 
 2. **Initialize Contact Sync:**

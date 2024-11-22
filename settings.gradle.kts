@@ -28,5 +28,5 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Contact Helper"
-include(":app")
+//include(":app")
 include(":contact_helper")
