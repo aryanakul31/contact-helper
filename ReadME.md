@@ -12,7 +12,11 @@ This library simplifies the process of syncing phone contacts with a server or l
 
 ## Prerequisites
 
-* **Contact Permission:** Requires the `android.permission.READ_CONTACTS` permission to access and sync contacts.
+* **Contact Permission:** Inside AndroidManifest.xml file, add below permission to access and sync contacts.
+
+```manifest
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+```
 
 ## Installation
 
@@ -29,7 +33,11 @@ Add the following dependency to your module-level `build.gradle.kts` file:
     * Handle the permission request result in your activity or fragment, proceeding with contact sync only if the permission is granted.
 
 2. **Initialize Contact Sync:**
-    * Call `ContactService.initService(this)` to initiate the contact sync process. This will trigger the service to read contacts, validate phone numbers, and store them securely.
+    * Call `ContactService.initService(this)` To initiate the contact sync process. This will trigger the service to read contacts, validate phone numbers, and store them securely.
+
+    ```kotlin
+        ContactService.initService(this)
+    ```
 
 3. **Setup Broadcast Receiver:**
     * Create a `BroadcastReceiver` to listen for the `ContactService.CONTACTS_SYNCED_FILTER` intent, which is broadcast when the sync process is complete.
