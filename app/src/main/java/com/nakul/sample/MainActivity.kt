@@ -44,7 +44,7 @@ class MainActivity : ComponentActivity() {
 
     override fun onStart() {
         super.onStart()
-        LocalBroadcastManager.getInstance(this).registerReceiver(broadcastReceiver, IntentFilter(ContactService.INPUT_FILTER))
+        LocalBroadcastManager.getInstance(this).registerReceiver(broadcastReceiver, IntentFilter(ContactService.CONTACTS_SYNCED_FILTER))
     }
 
     override fun onStop() {

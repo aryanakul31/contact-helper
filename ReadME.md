@@ -41,7 +41,7 @@ Add the following dependency to your module-level `build.gradle.kts` file:
 3. **Setup Broadcast Receiver:**
     * Create a `BroadcastReceiver` to listen for the `ContactService.CONTACTS_SYNCED_FILTER` intent, which is broadcast when the sync process is complete.
     * Register the receiver in your activity or fragment using `LocalBroadcastManager.getInstance(this).registerReceiver()`.
-    * Handle the received contacts in the `onReceive()` method of the broadcast receiver. The contacts will be available as an `ArrayList<ContactModel>` in the intent extras.
+    * Handle the received contacts in the `onReceive()` method of the broadcast receiver. The contacts will be available as `ContactsEventModel` in the intent extras.
 
 **Example:**
 
@@ -52,7 +52,8 @@ Add the following dependency to your module-level `build.gradle.kts` file:
     val broadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) 
         { 
-            val contacts = intent.getParcelableArrayListExtra<ContactModel>(ContactService.CONTACTS_SYNCED_FILTER)  // Process the received contacts 
+            val broadCastData = intent.getParcelableExtra<ContactsEventModel>(ContactService.CONTACTS_SYNCED_FILTER)  
+           broadCastData.contacts// Process the received contacts
         }
     }
 
